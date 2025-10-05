@@ -14,7 +14,7 @@ function M.setup()
 	ts_parsers.fram = {
 		install_info = {
 			url = "https://github.com/Brychlikov/tree-sitter-fram",
-			revision = "e8d8dcc70a276df49447e5b4384a4f61444afe9a",
+			revision = "09778b3022183a4ff83031830feda26311f0c9ec",
 			files = { "src/parser.c", "src/scanner.c" },
 			branch = "main",
 			generate_requires_npm = false,
@@ -22,19 +22,6 @@ function M.setup()
 		},
 		filetype = "fram",
 	}
-
-	vim.api.nvim_create_autocmd("Filetype", {
-		pattern = "fram",
-		callback = function()
-			local root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
-			local client = vim.lsp.start({
-				name = "framls",
-				cmd = { "framls" },
-				root_dir = root_dir,
-			})
-			vim.lsp.buf_attach_client(0, client)
-		end,
-	})
 end
 
 return M
