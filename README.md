@@ -13,7 +13,7 @@ Basic fram language support for Neovim. Includes a `filetype`, LSP config, and a
 
 Add the following to your plugin spec:
 
-```
+```lua
 {
   'Brychlikov/fram.nvim',
   name = 'vimplugin-fram.nvim',
